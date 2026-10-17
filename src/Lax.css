@@ -1,0 +1,16 @@
+.lax.nolax,
+.nolax .lax {
+	transform: translate(0, 0) !important;
+	filter: none !important;
+	opacity: 1 !important;
+	scale: none !important;
+}
+
+@media (width <= 64rem) {
+	.lax {
+		transform: translate(0, 0) !important;
+		filter: none !important;
+		opacity: 1 !important;
+		scale: none !important;
+	}
+}

@@ -4,7 +4,9 @@ A React component for parallax.
 
 ## Example
 
-```html
+```js
+import Lax from "lax-parallax";
+
 <Lax y="{80}" x="{20}"> Content here </Lax>
 ```
 

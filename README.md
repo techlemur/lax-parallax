@@ -14,6 +14,8 @@ import Lax from "lax-parallax";
 
 | Property         | Default | Description                                          |
 | ---------------- | ------- | ---------------------------------------------------- |
+| id               | random  | Standard component id attribute                      |
+| className        | ""      | Standard component class name attribute              |
 | x                | 0       | How far to move along the x axis in pixels           |
 | y                | 0       | How far to move along the y axis in pixels           |
 | clamp            | 0       | Limit the transition to a smaller part of the screen |
@@ -26,11 +28,9 @@ import Lax from "lax-parallax";
 | opacityDeadzone  | 0       | deadzone for only opacity (overridden by deadzone )  |
 | blurDeadzone     | 0       | deadzone for only blur (overridden by deadzone )     |
 | transition       | 0       | CSS transition time in seconds                       |
-| className        | ""      | Standard component class name attribute              |
-| id               | random  | Standard component id attribute                      |
-| debug            | false   | Activates debug mode                                 |
 | initial          | false   | Treat initial position as animation center           |
 | transitionCenter | false   | Coming soon...                                       |
+| debug            | false   | Activates debug mode                                 |
 
 ### Caveats
 

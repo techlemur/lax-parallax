@@ -2,7 +2,7 @@
   "name": "lax-parallax",
   "version": "0.0.2",
   "description": "Simple react parallax component.",
-  "main": "index.js",
+  "main": "dist/index.js",
   "license": "MIT",
   "type": "module",
   "scripts": {

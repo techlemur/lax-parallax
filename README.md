@@ -32,7 +32,42 @@ import Lax from "lax-parallax";
 | transitionCenter | false   | Coming soon...                                       |
 | debug            | false   | Activates debug mode                                 |
 
-### Caveats
+## Caveats
 
 - A window re-size will break most effects. A page refresh is usually
   required to re-calculate the effect scroll positions.
+
+## Using in Vite Projects - Build Errors
+
+If you run into problems using lax-parallax in a vite project (such as 
+```"...jsxDEV) is not a function..."```), do the following:
+
+- Install @babel/plugin-transform-react-jsx
+
+```sh
+npm i -D @babel/plugin-transform-react-jsx
+```
+
+ - In your vite.config.js change
+
+```js
+plugins: [
+    react(),
+    ...
+  ],
+```
+
+to
+
+```js
+plugins: [
+    react({
+      babel: {
+        plugins: [
+          ['@babel/plugin-transform-react-jsx', { runtime: 'automatic' }],
+        ]
+      },
+    }),
+    ...
+  ],
+```

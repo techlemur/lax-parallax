@@ -3,7 +3,7 @@
         [
             "@babel/preset-react",
             {
-                "runtime": "classic"
+                "runtime": "automatic"
             }
         ],
         [
@@ -18,13 +18,13 @@
                 "corejs": "3.6.5"
             }
         ],
-        // "@babel/plugin-transform-react-jsx"
-        // "@babel/plugin-syntax-jsx",
-        // [
-        //     "@babel/preset-react",
-        //     {
-        //         "runtime": "automatic"
-        //     }
-        // ]
+    ],
+    "plugins": [
+        [
+            "@babel/plugin-transform-react-jsx",
+            {
+                "runtime": "automatic", // defaults to autoamtic
+            }
+        ]
     ]
 }

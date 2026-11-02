@@ -6,7 +6,7 @@
   "license": "MIT",
   "type": "module",
   "scripts": {
-    "start": "webpack --watch",
+    "dev": "babel src --out-dir dist --verbose --watch",
     "build": "babel src --out-dir dist --verbose",
     "buildold": "webpack"
   },

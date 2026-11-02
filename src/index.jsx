@@ -105,7 +105,7 @@ export const Lax = ({
 			}
 
 			if (initial) {
-				setTransitionPoint(position.y + window.scrollY);
+				setTransitionPoint(position.y + (position.height /2 ) + window.scrollY);
 			} else if (transitionCenter) {
 				if (typeof transitionCenter === "number") {
 					setTransitionPoint(transitionCenter);

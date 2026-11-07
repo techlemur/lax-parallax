@@ -20,6 +20,7 @@ export const Lax = ({
 	},
 	debug = false,
 	initial = false,
+	infinite = false,
 	transitionCenter = false,
 	y = 0,
 	x = 0,
@@ -105,7 +106,9 @@ export const Lax = ({
 			}
 
 			if (initial) {
-				setTransitionPoint(position.y + (position.height /2 ) + window.scrollY);
+				setTransitionPoint(
+					position.y + position.height / 2 + window.scrollY,
+				);
 			} else if (transitionCenter) {
 				if (typeof transitionCenter === "number") {
 					setTransitionPoint(transitionCenter);
@@ -194,8 +197,19 @@ export const Lax = ({
 			if (!fromTop) {
 				return;
 			}
+
+			// If the element is out of the viewport by a full screen, return.
+			if (
+				!infinite &&
+				(calculateFromCenter(fromTop) > window.innerHeight * 1.5 ||
+					calculateFromCenter(fromTop) < -window.innerHeight * 1.5)
+			) {
+				return;
+			}
+
 			setTranslateY(calculateFromCenterPercent(fromTop) * y);
 			setTranslateX(calculateFromCenterPercent(fromTop) * x);
+
 			setBlurLevel(
 				calculateFromCenterPercentABS(fromTop, localBlurDeadzone) *
 					blur,
@@ -312,7 +326,7 @@ export const Lax = ({
 			>
 				{debug && (
 					<div
-						className="debug"
+						className='debug'
 						style={{
 							position: "absolute",
 							top: "5px",
@@ -329,6 +343,6 @@ export const Lax = ({
 			</div>
 		</>
 	);
-}
+};
 
 export default Lax;

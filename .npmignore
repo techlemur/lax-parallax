@@ -4,6 +4,7 @@
 # Exclude local configuration
 /.babelrc
 /webpack.config.js
+/webpack.config.cjs
 
 # Exclude node_modules
 /node_modules

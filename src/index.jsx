@@ -35,6 +35,7 @@ export const Lax = ({
 	opacityDeadzone = 0,
 	blurDeadzone = 0,
 	transition = 0,
+	stopDistance = 0.5
 }) => {
 	const myRef = createRef();
 
@@ -198,17 +199,21 @@ export const Lax = ({
 				return;
 			}
 
+			const distanceFromTop = calculateFromCenter(fromTop)
+
 			// If the element is out of the viewport by a full screen, return.
 			if (
 				!infinite &&
-				(calculateFromCenter(fromTop) > window.innerHeight * 1.5 ||
-					calculateFromCenter(fromTop) < -window.innerHeight * 1.5)
+				(distanceFromTop > (window.innerHeight * stopDistance) + elementHeight ||
+					distanceFromTop < (-window.innerHeight * stopDistance) - elementHeight)
 			) {
 				return;
 			}
 
-			setTranslateY(calculateFromCenterPercent(fromTop) * y);
-			setTranslateX(calculateFromCenterPercent(fromTop) * x);
+			const percentFromTop = calculateFromCenterPercent(fromTop)
+
+			setTranslateY(percentFromTop * y);
+			setTranslateX(percentFromTop * x);
 
 			setBlurLevel(
 				calculateFromCenterPercentABS(fromTop, localBlurDeadzone) *
@@ -260,7 +265,7 @@ export const Lax = ({
 				);
 			}
 		},
-		[fromTop, deadzone, localBlurDeadzone, localId],
+		[fromTop, deadzone, localBlurDeadzone, localId, stopDistance, elementHeight],
 	);
 
 	// Remove the old listener on change

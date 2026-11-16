@@ -2,6 +2,8 @@
 
 A React component for parallax.
 
+For best results, use with [Lenis](https://www.npmjs.com/package/lenis) smooth scrolling.
+
 ## Example
 
 ```js
